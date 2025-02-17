@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Editar Cliente</h2>
+        <form action="/cliente/<%= cliente._id %>?_method=PUT" method="POST">
+            <div class="form-group">
+                <label for="ci">CI:</label>
+                <input type="number" name="ci" value="<%= cliente.ci %>" required>
+            </div>
+            <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" name="nombres" value="<%= cliente.nombres %>" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" name="apellidos" value="<%= cliente.apellidos %>" required>
+            </div>
+            <div class="form-group">
+                <label for="celular">Celular:</label>
+                <input type="number" name="celular" value="<%= cliente.celular %>" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" name="correo" value="<%= cliente.correo %>" required>
+            </div>
+            <button type="submit" class="submit-btn">Guardar</button>
+        </form>
+        <br>
+        <a href="/" class="no-link">⬅️ Volver</a>
+    </div>
+</body>
+
+</html>

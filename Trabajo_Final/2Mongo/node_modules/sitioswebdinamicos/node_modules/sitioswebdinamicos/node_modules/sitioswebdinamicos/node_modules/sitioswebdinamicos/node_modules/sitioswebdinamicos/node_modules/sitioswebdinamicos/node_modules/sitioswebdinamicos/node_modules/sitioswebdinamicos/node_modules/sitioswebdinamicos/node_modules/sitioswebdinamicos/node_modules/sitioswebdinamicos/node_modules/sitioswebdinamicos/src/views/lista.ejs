@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes de Tienda</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>CRUD Mongo DB</h1>
+    <h2>Clientes de Tienda</h2>
+    <a href="/cliente/new" class="add-btn">➕ Agregar Cliente</a>
+    <table>
+        <thead>
+            <tr>
+                <th>CI</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Celular</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (clientes.length > 0) { %>
+                <% clientes.forEach(cliente => { %>
+                <tr>
+                    <td><%= cliente.ci %></td>
+                    <td><%= cliente.nombres %></td>
+                    <td><%= cliente.apellidos %></td>
+                    <td><%= cliente.celular %></td>
+                    <td><%= cliente.correo %></td>
+                    <td class="action-buttons">
+                        <a href="/cliente/<%= cliente._id %>/edit" class="edit-btn">✏️ Editar</a>
+                        <form action="/cliente/<%= cliente._id %>?_method=DELETE" method="POST" >
+                            <button type="submit" class="delete-btn">❌ Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No hay registros disponibles</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
+
